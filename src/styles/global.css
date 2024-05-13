@@ -1,45 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
-
 * {
-    margin: 0;
+    background-color: #eeeeee;
 }
-
-body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-    display: block;
-    max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-    font: inherit;
-}
-
-p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    overflow-wrap: break-word;
+    line-height: 1.2;
 }
 
-#root,
-#__next {
-    isolation: isolate;
+li {
+    line-height: 0.7;
+}
+
+.tiptap {
+    padding: 0 10px;
+    line-height: 1.6;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.tiptap:focus {
+    outline: none;
 }

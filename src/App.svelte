@@ -1,5 +1,6 @@
 <script>
     import '$root/styles/global.css'
+    import Editor from '$root/components/Editor.svelte'
 </script>
 
-<h1>Hello world 👋</h1>
+<Editor />

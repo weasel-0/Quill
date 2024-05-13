@@ -12,5 +12,10 @@
     "@sveltejs/vite-plugin-svelte": "^3.0.2",
     "svelte": "^4.2.12",
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@tiptap/core": "^2.3.2",
+    "@tiptap/pm": "^2.3.2",
+    "@tiptap/starter-kit": "^2.3.2"
   }
 }
