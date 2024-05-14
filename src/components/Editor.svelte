@@ -5,19 +5,27 @@
     import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
     import Image from '@tiptap/extension-image'
     import Link from '@tiptap/extension-link'
+    import Typography from '@tiptap/extension-typography'
+    import Placeholder from '@tiptap/extension-placeholder'
+    import Document from '@tiptap/extension-document'
 
     import { common, createLowlight } from 'lowlight'
 
     let element
     let editor
+    const CustomDocument = Document.extend({
+        content: 'heading block*',
+    })
 
     onMount(() => {
         editor = new Editor({
             element: element,
             autofocus: true,
             extensions: [
+                CustomDocument,
                 StarterKit.configure({
                     codeBlock: false,
+                    document: false,
                 }),
                 CodeBlockLowlight.configure({
                     lowlight: createLowlight(common),
@@ -29,6 +37,18 @@
                 }),
                 Link.extend({
                     inclusive: false,
+                }),
+                Typography,
+                // Placeholder.configure({
+                //     placeholder: ({ node }) => {
+                //         if (node.type.name === 'heading') {
+                //             return 'What’s the title?'
+                //         }
+                //         return 'smtg else'
+                //     },
+                // }),
+                Placeholder.configure({
+                    placeholder: 'Write something …',
                 }),
             ],
             // content: '<p>Hello World! 🌍️ </p>',
