@@ -8,6 +8,7 @@
     import Typography from '@tiptap/extension-typography'
     import Placeholder from '@tiptap/extension-placeholder'
     import Document from '@tiptap/extension-document'
+    import html2pdf from 'html2pdf.js'
 
     import { common, createLowlight } from 'lowlight'
 
@@ -64,8 +65,33 @@
             editor.destroy()
         }
     })
+
+    function exportMe() {
+        const html = editor.getHTML()
+        const elements = document.getElementsByClassName('tiptap')
+        console.log(elements)
+        const opt = {
+            margin: [12, 12, 12, 12],
+            filename: 'myfile.pdf',
+            image: { type: 'jpeg', quality: 0.2 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            pagebreak: { mode: 'avoid-all', before: '#page2el' },
+        }
+
+        let combinedHtml = ''
+        for (let i = 0; i < elements.length; i++) {
+            combinedHtml += elements[i].outerHTML
+        }
+
+        // html2pdf(combinedHtml)
+        html2pdf().set(opt).from(combinedHtml).save()
+    }
 </script>
 
+{#if editor}
+    <button on:click={exportMe}>Export</button>
+{/if}
 <div bind:this={element} class="editor" />
 
 <style>
