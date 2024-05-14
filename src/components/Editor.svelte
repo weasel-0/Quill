@@ -3,6 +3,8 @@
     import { Editor } from '@tiptap/core'
     import StarterKit from '@tiptap/starter-kit'
     import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
+    import Image from '@tiptap/extension-image'
+    import Link from '@tiptap/extension-link'
 
     import { common, createLowlight } from 'lowlight'
 
@@ -19,6 +21,14 @@
                 }),
                 CodeBlockLowlight.configure({
                     lowlight: createLowlight(common),
+                }),
+                Image,
+                Link.configure({
+                    openOnClick: true,
+                    autolink: true,
+                }),
+                Link.extend({
+                    inclusive: false,
                 }),
             ],
             // content: '<p>Hello World! 🌍️ </p>',
