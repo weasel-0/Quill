@@ -2,6 +2,9 @@
     import { onMount, onDestroy } from 'svelte'
     import { Editor } from '@tiptap/core'
     import StarterKit from '@tiptap/starter-kit'
+    import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
+
+    import { common, createLowlight } from 'lowlight'
 
     let element
     let editor
@@ -12,11 +15,10 @@
             autofocus: true,
             extensions: [
                 StarterKit.configure({
-                    heading: {
-                        HTMLAttributes: {
-                            class: 'hes',
-                        },
-                    },
+                    codeBlock: false,
+                }),
+                CodeBlockLowlight.configure({
+                    lowlight: createLowlight(common),
                 }),
             ],
             // content: '<p>Hello World! 🌍️ </p>',
@@ -34,36 +36,9 @@
     })
 </script>
 
-<!-- {#if editor}
-    <button
-        on:click={() =>
-            editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        class:active={editor.isActive('heading', { level: 1 })}
-    >
-        H1
-    </button>
-    <button
-        on:click={() =>
-            editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        class:active={editor.isActive('heading', { level: 2 })}
-    >
-        H2
-    </button>
-    <button
-        on:click={() => editor.chain().focus().setParagraph().run()}
-        class:active={editor.isActive('paragraph')}
-    >
-        P
-    </button>
-{/if} -->
-
 <div bind:this={element} class="editor" />
 
 <style>
-    /* button.active {
-        background: black;
-        color: white;
-    } */
     .editor {
         color: #444;
         font-size: 18px;
