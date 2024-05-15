@@ -27,6 +27,6 @@ Start the project
 npm run dev
 ```
 
-<summary>Preview</summary>
+## Preview
 
 ![project screenshot](preview.jpg)
