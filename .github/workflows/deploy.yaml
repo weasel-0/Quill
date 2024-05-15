@@ -17,7 +17,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '14' # Specify the Node.js version you need
+                  node-version: '18.12' # Updated to meet pnpm's minimum Node.js version requirement
 
             - name: Install pnpm
               run: npm install -g pnpm
