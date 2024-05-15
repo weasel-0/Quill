@@ -153,8 +153,8 @@
         border: 0;
         border-radius: 5px;
         position: fixed;
-        bottom: 20px;
-        right: 80px;
+        top: 20px;
+        right: 20px;
         padding: 8px;
         cursor: pointer;
     }

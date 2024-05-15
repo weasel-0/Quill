@@ -24,6 +24,7 @@ body {
     color: var(--color-fg);
     font-family: 'Atkinson Hyperlegible', sans-serif;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s;
 }
 h1,
 h2,
@@ -122,4 +123,17 @@ pre {
     float: left;
     height: 0;
     pointer-events: none;
+}
+
+.tiptap {
+    > * + * {
+        margin-top: 0.75em;
+    }
+
+    code {
+        border-radius: 0.25em;
+        box-decoration-break: clone;
+        font-size: 0.9rem;
+        padding: 0.25em;
+    }
 }
