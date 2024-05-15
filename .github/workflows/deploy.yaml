@@ -16,12 +16,17 @@ jobs:
 
             - name: Setup Node
               uses: actions/setup-node@v3
+              with:
+                  node-version: '14' # Specify the Node.js version you need
+
+            - name: Install pnpm
+              run: npm install -g pnpm
 
             - name: Install dependencies
-              uses: bahmutov/npm-install@v1
+              run: pnpm install
 
             - name: Build project
-              run: npm run build
+              run: npm run build # Assuming your build script is defined in package.json
 
             - name: Upload production-ready build files
               uses: actions/upload-artifact@v3
