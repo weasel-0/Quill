@@ -10,6 +10,8 @@
     import Document from '@tiptap/extension-document'
     import html2pdf from 'html2pdf.js'
     import { theme } from '$root/stores/themeStorage.js'
+    import sunIcon from '$root/assets/sun-bold.svg'
+    import moonIcon from '$root/assets/moon-bold.svg'
 
     import { common, createLowlight } from 'lowlight'
 
@@ -97,9 +99,16 @@
 </script>
 
 {#if editor}
-    <button on:click={toggleTheme}
-        >{$theme.charAt(0).toUpperCase() + $theme.slice(1)}</button
-    >
+    <button on:click={toggleTheme} class="themeBtn">
+        <div class="icon-container">
+            {#if $theme === 'light'}
+                <img src={sunIcon} alt="Sun" />
+            {:else}
+                <img src={moonIcon} alt="Moon" />
+            {/if}
+        </div>
+    </button>
+
     <button on:click={exportMe} class="exportBtn" title="Export to pdf"
         ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -137,5 +146,16 @@
         cursor: pointer;
         background-color: #eee;
         transition: 0.2s ease-in;
+    }
+
+    .themeBtn {
+        background-color: #fff;
+        border: 0;
+        border-radius: 5px;
+        position: fixed;
+        bottom: 20px;
+        right: 80px;
+        padding: 8px;
+        cursor: pointer;
     }
 </style>
