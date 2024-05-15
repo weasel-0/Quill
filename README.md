@@ -29,4 +29,4 @@ npm run dev
 
 <summary>Preview</summary>
 
-![project screenshot](preview.jpeg)
+![project screenshot](preview.jpg)
